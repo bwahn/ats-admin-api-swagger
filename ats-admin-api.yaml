@@ -1,0 +1,35 @@
+swagger: '2.0'
+info:
+  title: ats-admin api
+  description: ats-admin api
+  version: 1.0.0
+host: api.ats-admin.com
+schemes:
+  - https
+basePath: /v1
+produces:
+  - application/json
+paths:
+  '/servers/docker':
+    get:
+      description:
+          Create a docker server
+      parameters:
+        - $ref: '#/parameters/server-id'
+      tags:
+        - Servers
+      responses:
+        '200':
+          description: Ther server object
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/definitions/Server'
+
+definitions:
+  Server:
+    type: object
+    properties:
+      id:
+        type: integer
